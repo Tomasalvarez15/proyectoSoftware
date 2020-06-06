@@ -1,0 +1,30 @@
+<h1>Usuarios de Up</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+    <th>Edad</th>
+    <th>Comuna</th>
+    <th></th>
+    <th></th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+
+<% @users = User.all %>
+<% @users.each do |user| %>
+
+      <td><%= user.nombre %></td>
+      <td><%= user.descripcion%></td>
+      <td><%= user.edad %></td>
+      <td><%= user.comuna %></td>
+      <td><%= button_to 'Like', {:controller => "matches", :action => "create",
+                                 :liker => current_user.email, :liked=> user.email, :estado=>'1', :id=> current_user.match_id} , :method=>:post  %></td>
+      <td><%= button_to 'Dislike', {:controller => "matches", :action => "create", :liker => current_user, :liked=> user.email, :estado=>'0', :id=> current_user.match_id} , :method=>:post  %></td>
+      </tr>
+    </tbody>
+    </table>
+<% end %>

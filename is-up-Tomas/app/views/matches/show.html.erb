@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Liker:</strong>
+  <%= @match.liker %>
+</p>
+
+<p>
+  <strong>Liked:</strong>
+  <%= @match.liked %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @match.estado %>
+</p>
+
+<%= link_to 'Edit', edit_match_path(@match) %> |
+<%= link_to 'Back', matches_path %>
